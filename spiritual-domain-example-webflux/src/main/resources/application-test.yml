@@ -1,0 +1,23 @@
+spring:
+  servlet:
+    multipart:
+      max-request-size: 4096MB  # 设置请求文件最大大小
+      max-file-size: 1024MB     # 设置单个文件最大大小
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+# 刷新配置：curl -X POST http://127.0.0.1:8080/spiritual-domain-example-webflux/actuator/refresh
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+springdoc:
+  api-docs:
+    enabled: false
+
+spiritual-domain:
+  example-webflux:
+    message: Hello World!!!

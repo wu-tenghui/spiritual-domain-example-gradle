@@ -1,0 +1,11 @@
+server:
+  port: 8181
+
+spring:
+  webflux:
+    base-path: /spiritual-domain-example
+  application:
+    name: spiritual-domain-example
+  cloud:
+    inetutils:
+      preferred-networks: 127.0.0.1

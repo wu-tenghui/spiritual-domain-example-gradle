@@ -1,0 +1,7 @@
+spring:
+  thymeleaf:
+    cache: false
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8

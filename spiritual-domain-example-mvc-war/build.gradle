@@ -1,0 +1,25 @@
+plugins {
+    id 'war'
+}
+
+group 'spiritual-domain-example'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-configuration-processor"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+
+    implementation "org.springframework.cloud:spring-cloud-context"
+    /*
+     * Spring-Cloud-2020.0.2 加载 bootstrap.yml 需要
+     */
+    implementation "org.springframework.cloud:spring-cloud-starter-bootstrap"
+
+    implementation "io.springfox:springfox-swagger2"
+    implementation "io.springfox:springfox-swagger-ui"
+    implementation "com.github.xiaoymin:swagger-bootstrap-ui"
+    implementation "io.swagger:swagger-annotations"
+    implementation "io.swagger:swagger-models"
+}

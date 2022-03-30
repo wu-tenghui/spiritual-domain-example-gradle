@@ -1,0 +1,87 @@
+buildscript {
+    ext {
+        dependencyManagementPluginVersion = "1.0.11.RELEASE"
+        springBootGradlePluginVersion = "2.4.5"
+
+        springBootDependenciesVersion = "2.4.5"
+        springCloudDependenciesVersion = "2020.0.2"
+        springCloudAlibabaDependenciesVersion = "2.2.2.RELEASE"
+
+        junitVersion = "4.12"
+        hamcrestCoreVersion = "1.3"
+
+        springfoxSwagger2Version = "2.9.2"
+        springfoxSwaggerUiVersion = "2.9.2"
+        swaggerBootstrapUiVersion = "1.9.6"
+
+        swaggerAnnotationsVersion = "1.5.24"
+        swaggerModelsVersion = "1.5.24"
+    }
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        maven { url "https://maven.aliyun.com/repository/google" }
+        maven { url "https://maven.aliyun.com/repository/spring" }
+        maven { url "https://maven.aliyun.com/repository/spring-plugin" }
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url "https://maven.aliyun.com/repository/jcenter" }
+        maven { url "https://maven.aliyun.com/repository/releases" }
+        maven { url "https://maven.aliyun.com/repository/snapshots" }
+        maven { url "https://maven.aliyun.com/repository/apache-snapshots" }
+        mavenLocal()
+    }
+    dependencies {
+        classpath group: "io.spring.gradle", name: "dependency-management-plugin", version: "$dependencyManagementPluginVersion"
+        classpath group: "org.springframework.boot", name: "spring-boot-gradle-plugin", version: "$springBootGradlePluginVersion"
+    }
+}
+
+allprojects {
+
+    apply plugin: "java"
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: "org.springframework.boot"
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        maven { url "https://maven.aliyun.com/repository/google" }
+        maven { url "https://maven.aliyun.com/repository/spring" }
+        maven { url "https://maven.aliyun.com/repository/spring-plugin" }
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url "https://maven.aliyun.com/repository/jcenter" }
+        maven { url "https://maven.aliyun.com/repository/releases" }
+        maven { url "https://maven.aliyun.com/repository/snapshots" }
+        maven { url "https://maven.aliyun.com/repository/apache-snapshots" }
+        mavenLocal()
+    }
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootDependenciesVersion"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudDependenciesVersion"
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:$springCloudAlibabaDependenciesVersion"
+        }
+        dependencies {
+            dependency "junit:junit:$junitVersion"
+            dependency "org.hamcrest:hamcrest-core:$hamcrestCoreVersion"
+
+            dependency "io.springfox:springfox-swagger2:$springfoxSwagger2Version"
+            dependency "io.springfox:springfox-swagger-ui:$springfoxSwaggerUiVersion"
+            dependency "com.github.xiaoymin:swagger-bootstrap-ui:$swaggerBootstrapUiVersion"
+
+            dependency "io.swagger:swagger-annotations:$swaggerAnnotationsVersion"
+            dependency "io.swagger:swagger-models:$swaggerModelsVersion"
+        }
+    }
+    dependencies {
+        testImplementation group: "org.springframework.boot", name: "spring-boot-starter-test"
+        testImplementation group: "junit", name: "junit"
+        testImplementation group: "org.hamcrest", name: "hamcrest-core"
+    }
+}
+
+group "spiritual-domain-example"
+version "1.0-SNAPSHOT"

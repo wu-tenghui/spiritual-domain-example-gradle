@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VM options 中添加 -Dlog4j.skipJansi=false -->
+<configuration status="info" monitorInterval="60">
+    <properties>
+        <property name="colors" value="OFF=FG_RED,FATAL=FG_RED,ERROR=FG_RED,WARN=FG_YELLOW,INFO=FG_GREEN,DEBUG=FG_CYAN,TRACE=FG_BLACK,ALL=FG_BLACK" />
+    </properties>
+    <appenders>
+        <console name="console" target="SYSTEM_OUT">
+            <patternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%5p %5pid}{${colors}} --- [%15.15t] %highlight{%-40.40logger{40}}{${colors}} : %m%n"/>
+        </console>
+    </appenders>
+    <loggers>
+        <root level="info">
+            <appender-ref ref="console"/>
+        </root>
+    </loggers>
+</configuration>

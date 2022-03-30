@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info" monitorInterval="60">
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(%5(${PID})){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{40}){cyan} %clr(:){faint} %m%n</pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
